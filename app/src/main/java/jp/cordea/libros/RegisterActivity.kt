@@ -27,9 +27,11 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil
+        DataBindingUtil
                 .setContentView<ActivityRegisterBinding>(this, R.layout.activity_register)
-        binding.vm = viewModel
+                .apply {
+                    vm = viewModel
+                }
 
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
