@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <data>
+        <variable
+            name="vm"
+            type="jp.cordea.libros.viewmodel.MainListItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/list_item_padding"
+        android:paddingEnd="@dimen/list_item_padding"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_item_height" >
+
+        <TextView
+            android:text="@{vm.book.title}"
+            android:textSize="@dimen/list_item_text_size"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginBottom="@dimen/list_item_title_bottom_margin"
+            android:textColor="@color/primary_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="@{vm.book.author}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/list_item_text_size"
+            android:textColor="@color/secondary_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</layout>

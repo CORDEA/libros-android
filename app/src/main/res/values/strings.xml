@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Libros</string>
+    <string name="barcode_prompt_message">本のバーコードをスキャンしてください</string>
+    <string name="title_activity_register">本を登録</string>
+    <string name="register_code">ISBN</string>
+    <string name="register_info">情報を取得</string>
+    <string name="register_title">タイトル</string>
+    <string name="register_author">著者名</string>
+    <string name="register_scan">スキャン</string>
+    <string name="register_publisher">出版社名</string>
+    <string name="error_network_title">読み込みに失敗しました</string>
+    <string name="error_search_title">本の検索に失敗しました</string>
+    <string name="error_register_title">登録に失敗しました</string>
+    <string name="error_update_title">更新に失敗しました</string>
+    <string name="error_search_message">ISBN が正しいか確認してください。</string>
+    <string name="error_validate_message">内容に不備がないか確認してください。</string>
+    <string name="error_network_message">通信状態を確認してください。</string>
+    <string name="retry">再試行</string>
+    <string name="close">閉じる</string>
+
+    <string-array name="select_actions">
+        <item>編集</item>
+        <item>削除</item>
+    </string-array>
+</resources>

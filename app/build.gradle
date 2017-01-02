@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    dataBinding {
+        enabled = true
+    }
+    defaultConfig {
+        applicationId "jp.cordea.libros"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    productFlavors {
+        mock {
+            buildConfigField "String", "API_BASE_URL", '"http://example.com"'
+            buildConfigField "boolean", "MOCK", "true"
+        }
+        prod {
+            buildConfigField "String", "API_BASE_URL", '"http://example.com"'
+            buildConfigField "boolean", "MOCK", "false"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    compile 'com.journeyapps:zxing-android-embedded:3.4.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit-mock:2.1.0'
+    compile 'com.squareup.retrofit2:converter-moshi:2.1.0'
+    compile 'com.squareup.moshi:moshi:1.3.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+    kapt 'com.android.databinding:compiler:2.2.0-alpha6'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kapt {
+    generateStubs = true
+}
